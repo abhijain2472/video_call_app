@@ -1,0 +1,36 @@
+class User {
+  final String userId;
+  final String userName;
+  final String displayName;
+  final String clientId;
+  final String userImage;
+  final String emailId;
+  final String phoneNumber;
+  final String token;
+
+  User({
+    this.userId,
+    this.userName,
+    this.displayName,
+    this.clientId,
+    this.userImage,
+    this.emailId,
+    this.phoneNumber,
+    this.token,
+  });
+
+  factory User.fromJson(Map<String, dynamic> userData) {
+    return User(
+      userId: userData['Data']['loginUserData']['UserID'],
+      emailId: userData['Data']['loginUserData']['EmailID'],
+      clientId: userData['Data']['loginUserData']['ClientID'],
+      displayName: userData['Data']['loginUserData']['DisplayName'],
+      phoneNumber: userData['Data']['loginUserData']['PhoneNumber'],
+      userImage: userData['Data']['loginUserData']['UserImage'],
+      userName: userData['Data']['loginUserData']['UserName'],
+      token: userData['Data']['tokendetails']['Token'],
+    );
+  }
+
+
+}

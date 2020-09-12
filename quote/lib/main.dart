@@ -26,7 +26,7 @@ class _QuoteListState extends State<QuoteList> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('New Awesome Quotes'),
+          title: Text('New Awesome Quotes App'),
           backgroundColor: Colors.red[400],
           centerTitle: true,
         ),

@@ -175,6 +175,7 @@ class _UploadState extends State<Upload> {
     String downloadUrl = await storageTaskSnapshot.ref.getDownloadURL();
     return downloadUrl;
   }
+ 
 
   Future<void> createPostInFireStore({
     String mediaUrl,

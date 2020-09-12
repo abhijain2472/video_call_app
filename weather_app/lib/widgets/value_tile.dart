@@ -1,41 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/utils/constant.dart';
 
 class ValueTile extends StatelessWidget {
   final String label;
   final String value;
-  final IconData iconData;
+  final String iconName;
+  final bool isLightImage;
 
-  ValueTile(this.label, this.value, {this.iconData});
+  ValueTile({
+    this.label,
+    this.value,
+    this.iconName,
+    this.isLightImage=false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          this.label,
-          style: TextStyle(
-              color:Theme.of(context).accentColor),
+    return Expanded(
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+
+            Text(
+              this.label,
+              style: TextStyle( color:isLightImage?kLightSubTextColor:kDarkSubTextColor,),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              this.value,
+              style: TextStyle( color:isLightImage?kBlackColor:kWhiteColor,),
+            ),
+            SizedBox(height: 6.0,),
+            if(iconName !=null)Image.asset(
+              'assets/images/$iconName.png',
+              color:isLightImage?kLightSubTextColor:kDarkSubTextColor,
+              width: 20.0,
+            ),
+          ],
         ),
-        SizedBox(
-          height: 5,
-        ),
-        this.iconData != null
-            ? Icon(
-          iconData,
-          color: Theme.of(context).primaryColor,
-          size: 20,
-        )
-            : Container(),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          this.value,
-          style:
-          TextStyle(color: Theme.of(context).primaryColor),
-        ),
-      ],
+      ),
     );
   }
 }

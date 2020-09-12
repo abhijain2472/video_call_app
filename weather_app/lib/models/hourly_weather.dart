@@ -13,7 +13,7 @@ class HourlyWeather {
   final int groundLevel;
   final String condition;
   final String description;
-  final double windSpeed;
+  var windSpeed;
   final int windDegree;
   final String iconCode;
   final DateTime timeStamp;
@@ -82,6 +82,56 @@ class HourlyWeather {
       case '50d': return WeatherIcons.mist_day;
       case '50n': return WeatherIcons.mist_night;
       default: return WeatherIcons.clear_day;
+    }
+  }
+  String getGifImage(){
+    switch(this.iconCode){
+      case '01d': return 'assets/images/clear_day.gif';
+      case '01n': return 'assets/images/clear_night.gif';
+      case '02d': return 'assets/images/few_cloud.gif';
+      case '02n': return 'assets/images/few_cloud.gif';
+      case '03d':
+      case '04d':
+        return 'assets/images/cloud_day.gif';
+      case '03n':
+      case '04n':
+        return 'assets/images/clear_night.gif';
+      case '09d': return 'assets/images/rain.gif';
+      case '09n': return 'assets/images/rain_shower.gif';
+      case '10d': return 'assets/images/rain.gif';
+      case '10n': return 'assets/images/rain_shower.gif';
+      case '11d': return 'assets/images/TS_day.gif';
+      case '11n': return 'assets/images/TS_night.gif';
+      case '13d': return 'assets/images/snow_day.gif';
+      case '13n': return 'assets/images/snow_night.gif';
+      case '50d': return 'assets/images/mist.gif';
+      case '50n': return 'assets/images/mist.gif';
+      default: return 'assets/images/clear_day.gif';;
+    }
+  }
+  bool isLightImage(){
+    switch(this.iconCode){
+      case '01d': return true;
+      case '01n': return false;
+      case '02d': return true;
+      case '02n': return true;
+      case '03d':
+      case '04d':
+        return true;
+      case '03n':
+      case '04n':
+        return false;
+      case '09d': return false;
+      case '09n': return false;
+      case '10d': return false;
+      case '10n': return false;
+      case '11d': return false;
+      case '11n': return false;
+      case '13d': return false;
+      case '13n': return false;
+      case '50d': return false;
+      case '50n': return false;
+      default: return false;
     }
   }
 }

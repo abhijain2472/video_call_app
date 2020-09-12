@@ -38,6 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return showDialog(
           context: context,
           builder: (context) => new AlertDialog(
+
             content: Text(
               'Do you want to exit an App ?',
             ),

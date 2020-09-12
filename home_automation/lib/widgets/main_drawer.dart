@@ -5,7 +5,7 @@ import 'package:homeautomation/screens/login_screen.dart';
 import 'package:homeautomation/screens/power_usage.dart';
 class MainDrawer extends StatelessWidget {
   final TextStyle itemStyle =
-      TextStyle(fontWeight: FontWeight.bold, color: Colors.black);
+  TextStyle(fontWeight: FontWeight.bold, color: Colors.black);
 
   @override
   Widget build(BuildContext context) {
